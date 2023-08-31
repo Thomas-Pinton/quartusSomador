@@ -1,0 +1,27 @@
+Library IEEE;
+use IEEE.std_logic_1164.all;
+
+entity binaryToHexadecimalConverter is
+	port (
+		A: in std_logic;
+		B: in std_logic;
+		C: in std_logic;
+		D: in std_logic;
+		a: out std_logic;
+		b: out std_logic;
+		c: out std_logic;
+		d: out std_logic;
+		e:	out std_logic;
+		f: out std_logic;
+		g: out std_logic;
+
+	);
+	end binaryToHexadecimalConverter;
+	
+architeture converterArch of binaryToHexadecimalConverter is
+	begin 
+		a <= (A AND (NOT C)) OR 
+		((NOT A) AND (NOT B) AND (NOT C) AND (NOT D)) OR 
+		((NOT A) AND B AND (C OR D)) OR
+		((NOT A) AND (NOT B) AND C)
+	end converterArch
